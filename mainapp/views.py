@@ -1,34 +1,36 @@
-from django.contrib.auth.models import User, AnonymousUser
-from rest_framework import permissions, status
-from rest_framework import viewsets, views, renderers
+from django.contrib.auth.models import User
+from rest_framework import permissions
+from rest_framework import viewsets, renderers
 from rest_framework.response import Response
 
-from .serializers import UserSerializer, ProjectSerializer, TaskSerializer
+from .models import Project, Task
+from .serializers import UserSerializer, ProjectSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
-class ProjectAPIView(views.APIView):
+class ProjectViewSet(viewsets.GenericViewSet):
     renderer_classes = [renderers.BrowsableAPIRenderer, renderers.JSONRenderer]
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Project.objects.all()
 
-    def get(self, request):
-        if isinstance(request.user, AnonymousUser):
-            return Response({'detail': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        projects = request.user.projects.get_queryset()
+    def list(self, request):
+        uid = request.user.id
+        projects = self.queryset.filter(id__exact=uid)
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
 
 
-class TaskAPIView(views.APIView):
+class TaskViewSet(viewsets.GenericViewSet):
     renderer_classes = [renderers.BrowsableAPIRenderer, renderers.JSONRenderer]
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Task.objects.all()
 
-    def get(self, request):
-        if isinstance(request.user, AnonymousUser):
-            return Response({'detail': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        tasks = request.user.tasks.get_queryset()
-        serializer = TaskSerializer(tasks, many=True)
+    def list(self, request):
+        uid = request.user.id
+        tasks = self.queryset.filter(id__exact=uid)
+        serializer = ProjectSerializer(tasks, many=True)
         return Response(serializer.data)

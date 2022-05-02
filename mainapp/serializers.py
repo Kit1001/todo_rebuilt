@@ -17,9 +17,6 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # projects = ProjectSerializer(many=True)
-    # tasks = TaskSerializer(many=True)
-
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'projects', 'tasks']

@@ -21,13 +21,13 @@ from mainapp import views
 
 router = routers.DefaultRouter()
 router.register('users', views.UserViewSet)
-# router.register('projects', views.ProjectAPIView)
-# router.register('tasks', views.TaskViewSet)
+router.register('projects', views.ProjectViewSet)
+router.register('tasks', views.TaskViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-    path('projects', views.ProjectAPIView.as_view()),
-    path('tasks', views.TaskAPIView.as_view()),
+    # path('projects', views.ProjectAPIView.as_view()),
+    # path('tasks', views.TaskAPIView.as_view()),
+    path('', include(router.urls)),
 ]

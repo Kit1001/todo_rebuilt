@@ -4,7 +4,7 @@ from rest_framework import viewsets, renderers
 from rest_framework.response import Response
 
 from .models import Project, Task
-from .serializers import UserSerializer, ProjectSerializer
+from .serializers import UserSerializer, ProjectSerializer, TaskSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -18,8 +18,7 @@ class ProjectViewSet(viewsets.GenericViewSet):
     queryset = Project.objects.all()
 
     def list(self, request):
-        uid = request.user.id
-        projects = self.queryset.filter(id__exact=uid)
+        projects = request.user.projects.get_queryset()
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
 
@@ -30,7 +29,6 @@ class TaskViewSet(viewsets.GenericViewSet):
     queryset = Task.objects.all()
 
     def list(self, request):
-        uid = request.user.id
-        tasks = self.queryset.filter(id__exact=uid)
-        serializer = ProjectSerializer(tasks, many=True)
+        tasks = request.user.tasks.get_queryset()
+        serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)

@@ -1,9 +1,12 @@
 from django.contrib.auth.models import User
+from rest_framework import mixins
 from rest_framework import permissions
 from rest_framework import viewsets, renderers
+
+import calendar
+
 from rest_framework.response import Response
 
-from .models import Project, Task
 from .serializers import UserSerializer, ProjectSerializer, TaskSerializer
 
 
@@ -12,23 +15,30 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class ProjectViewSet(viewsets.GenericViewSet):
+class ProjectViewSet(viewsets.GenericViewSet,
+                     mixins.ListModelMixin,
+                     mixins.CreateModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.RetrieveModelMixin):
     renderer_classes = [renderers.BrowsableAPIRenderer, renderers.JSONRenderer]
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
 
-    def list(self, request):
-        projects = request.user.projects.get_queryset()
-        serializer = ProjectSerializer(projects, many=True)
-        return Response(serializer.data)
+    def get_queryset(self):
+        result = User.objects.get(id=self.request.user.id).projects.all()
+        return result
 
 
-class TaskViewSet(viewsets.GenericViewSet):
+class TaskViewSet(viewsets.GenericViewSet,
+                  mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.RetrieveModelMixin):
     renderer_classes = [renderers.BrowsableAPIRenderer, renderers.JSONRenderer]
+    serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Task.objects.all()
 
-    def list(self, request):
-        tasks = request.user.tasks.get_queryset()
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data)
+    def get_queryset(self):
+        result = User.objects.get(id=self.request.user.id).tasks.all()
+        return result
+

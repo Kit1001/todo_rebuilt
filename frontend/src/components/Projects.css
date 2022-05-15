@@ -1,0 +1,133 @@
+.projects {
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 94%;
+
+    position: fixed;
+    top: 3rem;
+    left: 0;
+
+    background-color: #eeeeee;
+    overflow-y: scroll;
+    /*box-shadow: 1px 0 0 rgba(68, 68, 68, 0.1),*/
+    /*2px 0 0 rgba(68, 68, 68, 0.1),*/
+    /*3px 0 0 rgba(68, 68, 68, 0.1),*/
+    /*4px 0 0 rgba(68, 68, 68, 0.07),*/
+    /*5px 0 0 rgba(68, 68, 68, 0.05);*/
+
+    box-shadow: 3px 0 5px rgba(80, 80, 80, 0.35);
+
+    box-sizing: border-box;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.projects .projects-list {
+    list-style: none;
+    padding: 10% 0 0 0;
+    margin: 0;
+    color: #3c3c3c;
+}
+
+.projects-list li {
+    /*background-color: red;*/
+    font-family: "Oswald", serif;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.projects-list li:hover,
+.projects-list li:active {
+    color: #101010;
+}
+
+.projects-list li span {
+    padding-left: 12%;
+    /*margin-left: 3rem;*/
+}
+
+
+.projects-list li.expanded span{
+    display: block;
+    background-color: #d0d0d0;
+    /*width: 100rem;*/
+}
+
+
+.projects-list li table {
+    display: none;
+}
+
+.projects-list li.expanded table {
+    display: block;
+    /*margin: 0.5rem 0.5rem 0 3.5rem;*/
+    margin: 3% 3% 0 15%;
+    padding: 0;
+    /*background-color: blue;*/
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    color: #181818;
+}
+
+.projects-list li.expanded table tr td{
+    vertical-align: top;
+    padding-bottom: 0.25rem;
+}
+
+.projects-list li.expanded table tr td:last-child{
+    padding-left: 1.5rem;
+}
+
+.projects-list li.expanded table a{
+    text-decoration: none;
+    text-transform: lowercase;
+    color: inherit;
+}
+
+.tasks {
+    position: absolute;
+    top: 3rem;
+    left: 25%;
+    width: 74%;
+    height: 100%;
+    /*overflow-y: scroll;*/
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.tasks-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+    padding: 0 3%;
+}
+
+.tasks-list li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    background-color: #eeeeee;
+    /*height: 15rem;*/
+    min-height: 10rem;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px #adadad;
+}
+
+.tasks-list li h3{
+    margin: 0;
+    padding: 0;
+}
+
+.tasks-list li a {
+    text-decoration: none;
+    color:inherit;
+}

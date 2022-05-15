@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Merriweather", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif, sans-serif, sans-serif;
+    /*overflow-y: auto;*/
+}
+
+.header {
+    background-color: #20232a;
+    display: flex;
+    height: 3rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    /*background-color: red;*/
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-svg {
+    padding-left: 3rem;
+    margin: 0.5rem;
+    height: 2rem;
+    filter: invert(73%) sepia(15%) saturate(3075%) hue-rotate(160deg) brightness(98%) contrast(85%);
+    /*background-color: #40c0e7;*/
+}
+
+.navbar {
+    /*background-color: red;*/
+    /*margin-left: -20rem;*/
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #dae0e8;
+    padding-bottom: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: #61dafb;
+}
+
+.navbar a:target {
+    color: #61dafb;
+    border-bottom: #61dafb solid 4px;
+}
+
+.navbar li {
+    margin-left: 1rem;
+    font-weight: 100;
+}
+
+.profile {
+    margin: 0 3rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_avatar_link {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: red;*/
+}
+
+.profile .avatar {
+    width: 1.2rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.profile .profile_text {
+    margin: 0;
+    padding-bottom: 0.4rem;
+    text-decoration: none;
+    color: #dae0e8;
+    font-size: 1.2rem;
+    font-weight: 100;
+
+}
+
+.profile a:hover,
+.profile a:focus {
+    color: #61dafb;
+}
+
+.profile a:target {
+    color: #61dafb;
+    border-bottom: #61dafb solid 4px;
+}
+
+.profile .triangle {
+    height: 0.6rem;
+    filter: invert(73%) sepia(15%) saturate(3075%) hue-rotate(160deg) brightness(98%) contrast(85%);
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    /*display: flex;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*background-color: red;*/
+    /*justify-content: flex-start;*/
+    /*overflow-y: hidden;*/
+    /*z-index: 10;*/
+}
+
+.projects {
+    margin: 0;
+    padding: 0px;
+    width: 25%;
+    height: 94%;
+
+    position: fixed;
+    top: 3rem;
+    left: 0;
+
+    background-color: #eeeeee;
+    overflow-y: scroll;
+    box-shadow: 1px 0 0 rgba(68, 68, 68, 0.1),
+    2px 0 0 rgba(68, 68, 68, 0.1),
+    3px 0 0 rgba(68, 68, 68, 0.1),
+    4px 0 0 rgba(68, 68, 68, 0.07),
+    5px 0 0 rgba(68, 68, 68, 0.05);
+
+    box-sizing: border-box;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    /*z-index: -1;*/
+}
+
+.tasks {
+    position: absolute;
+    top: 3rem;
+    left: 26%;
+    width: 74%;
+    height: 100%;
+    /*overflow-y: scroll;*/
+    box-sizing: border-box;
+    z-index: -1;
+}

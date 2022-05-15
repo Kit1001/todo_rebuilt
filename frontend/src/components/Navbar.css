@@ -1,0 +1,117 @@
+.header {
+    background-color: #20232a;
+    display: flex;
+    height: 3rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    padding-left: 3rem;
+    height: 100%;
+    display: flex;
+    /*background-color: red;*/
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-link {
+    /*display: none;*/
+}
+
+.logo-svg {
+    /*padding-left: 3rem;*/
+    margin: 0.5rem;
+    height: 2rem;
+    filter: invert(73%) sepia(15%) saturate(3075%) hue-rotate(160deg) brightness(98%) contrast(85%);
+    /*background-color: #40c0e7;*/
+}
+
+.navbar {
+    /*background-color: red;*/
+    /*margin-left: -20rem;*/
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .link {
+    text-decoration: none;
+    color: #dae0e8;
+    padding-bottom: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.navbar .link:hover,
+.navbar .link:focus {
+    color: #61dafb;
+
+    /*border-bottom: #61dafb solid 4px;*/
+}
+
+.navbar .link.active {
+    color: #61dafb;
+    border-bottom: #61dafb solid 4px;
+}
+
+.navbar li {
+    margin-left: 1rem;
+    font-weight: 100;
+}
+
+.profile {
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .link {
+    font-size: 1.2rem;
+    color: #dae0e8;
+    text-decoration: none;
+    padding-bottom: 0.4rem;
+}
+
+.profile .link:hover,
+.profile .link:focus{
+    color: #61dafb;
+}
+
+.profile .link.active .profile_text{
+    padding-bottom: 0.4rem;
+    border-bottom: 4px solid #61dafb;
+}
+
+.profile .avatar {
+    background-image: url('https://kingstonplaza.com/wp-content/uploads/2015/07/generic-avatar-300x300.png');
+    display: inline;
+    width: 1.2rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    position: relative;
+    top: 0.1rem;
+    left: -0.3rem;
+}
+
+.profile .triangle {
+    height: 0.6rem;
+    filter: invert(73%) sepia(15%) saturate(3075%) hue-rotate(160deg) brightness(98%) contrast(85%);
+}
